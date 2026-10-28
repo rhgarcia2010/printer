@@ -16,7 +16,18 @@ Settings, the last file and the printer choice are remembered in
 
 ## Build
 
-Requirements: Go 1.25+, Node.js, and the Wails CLI:
+On macOS or Linux:
+
+```sh
+make doctor   # checks prerequisites and says what is missing
+make setup    # installs the Wails CLI and frontend packages (first time only)
+make build    # builds the app into build/bin
+```
+
+`make help` lists the rest (`run`, `dev`, `test`, `check`, `clean`, and
+`build-universal` for a Mac app that runs on both Intel and Apple Silicon).
+
+Requirements: Go 1.26+, Node.js 20.19+ (or 22.12+), and the Wails CLI:
 
 ```sh
 go install github.com/wailsapp/wails/v2/cmd/wails@latest
@@ -24,7 +35,7 @@ go install github.com/wailsapp/wails/v2/cmd/wails@latest
 
 | OS | Extra requirements | Command |
 |---|---|---|
-| Linux | `gtk3`, `webkit2gtk-4.1` | `wails build -tags webkit2_41` |
+| Linux | gcc, pkg-config, `gtk3`, `webkit2gtk-4.1` | `wails build -tags webkit2_41` |
 | macOS | Xcode command line tools | `wails build` |
 | Windows | WebView2 runtime (preinstalled on Windows 10/11) | `wails build` |
 
