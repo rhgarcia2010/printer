@@ -1,3 +1,15 @@
+# Build output
 build/bin
+
+# Frontend build output. The placeholder stays so `go build` / `go test`
+# work on a fresh clone: main.go embeds frontend/dist, which must not be empty.
+frontend/dist/*
+!frontend/dist/gitkeep
+
+# Dependencies and Wails' npm-install cache
 node_modules
-frontend/dist
+frontend/package.json.md5
+
+# OS clutter
+.DS_Store
+Thumbs.db
